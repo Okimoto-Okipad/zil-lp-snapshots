@@ -51,7 +51,7 @@ export const job = () => {
     };
 
     const totalShare = Object.values(aggregatedShares).reduce((m, s) => m + s, 0);
-    if (totalShare !== 1) throw new Error("totalShare !== 1");
+    if (totalShare < .99999) throw new Error(`totalShare:${totalShare} !== 1`);
     // const totalInterest = totalContribution * interestEarned;
     // const adjustedInterest = totalInterest / nSnapshots;
     // console.log({ totalShare, totalContribution, adjustedInterest });

@@ -1,5 +1,5 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'fs';
-import * as moment from 'moment';
+import moment from 'moment';
 
 import {
   toBech32Address,
@@ -25,14 +25,6 @@ export const getBalancesMap = async (contract: Contract) => {
 }
 
 export const job = async () => {
-  let zilswapBalances;
-  try {
-    console.log("fetch balances for token", tokenAddress);
-    zilswapBalances = await getBalancesMap(ZilSwap);
-  } catch (err) {
-    console.error(err);
-  }
-  if (!zilswapBalances) return;
   let date = moment().format("YYYY-MM-DD");
   let lpJSON;
   try {
@@ -42,10 +34,18 @@ export const job = async () => {
     mkdirSync(`data/${tokenAddressBech}`, { recursive: true });
   }
   const state = lpJSON ? JSON.parse(lpJSON) : { raw: {}, formatted: {} };
-  if (!state[date]) {
-    console.log("append new entry for date", date);
+  if (!state.raw[date]) {
+    let zilswapBalances;
+    try {
+      console.log("fetch balances for token", tokenAddress);
+      zilswapBalances = await getBalancesMap(ZilSwap);
+    } catch (err) {
+      console.error(err);
+    }
+    if (!zilswapBalances) return;
     const balances = zilswapBalances[tokenAddress];
     state.raw[date] = balances;
+    console.log("append new entry for date", date);
     // state.formatted[date] = {};
     // for (const addr of Object.keys(balances)) {
     //   const balance = balances[addr];
