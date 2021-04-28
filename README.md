@@ -2,9 +2,10 @@
 
 > Simple utility to calculate Zilswap LP rewards.
 
-# Contributers
+# Contributors
 
 This repo + typescript: Leif <structuresound@gmail.com>
+
 Original js scripts: Stefano <ZilliqaDuke@gmail.com>
 
 ### How to use
