@@ -1,0 +1,19 @@
+{
+  "name": "zilliqa-lp-balance",
+  "description": "Simple utility to calculate Zilswap LP rewards.",
+  "version": "0.1.0",
+  "main": "src",
+  "scripts": {
+    "test": "echo :(",
+    "dev": "tsc && node dist/index.js",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@zilliqa-js/util": "^2.2.0",
+    "@zilliqa-js/zilliqa": "^2.3.0-alpha.0",
+    "bignumber.js": "^9.0.1",
+    "moment": "^2.29.1",
+    "tslib": "2.2.0"
+  },
+  "license": "MIT"
+}
