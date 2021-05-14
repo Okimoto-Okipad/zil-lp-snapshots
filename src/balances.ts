@@ -46,6 +46,8 @@ export const job = async () => {
     const balances = zilswapBalances[tokenAddress];
     state.raw[date] = balances;
     console.log("append new entry for date", date);
+
+    // TODO: fetch relative amounts based on zilswap API and note them here
     // state.formatted[date] = {};
     // for (const addr of Object.keys(balances)) {
     //   const balance = balances[addr];

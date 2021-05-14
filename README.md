@@ -14,7 +14,7 @@ Original js scripts: Stefano <ZilliqaDuke@gmail.com>
 git clone https://github.com/Token-Elon/zil-lp-snapshots.git
 cd zil-lp-snapshots
 npm i
-# Edit src/constants.ts
-npm start
-# writes to data/tokenId/...json/csv
+nano src/constants.ts # set token or rewards amount
+tsx #compile to dist folder
+npm start #take snapshot, writes to data/tokenId/...json/csv
 ```

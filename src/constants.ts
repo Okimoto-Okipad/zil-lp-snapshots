@@ -8,13 +8,14 @@ const {
 export const zilliqa = new Zilliqa("https://api.zilliqa.com/");
 export const zilSwapAddress = "0xBa11eB7bCc0a02e947ACF03Cc651Bfaf19C9EC00".toLowerCase();
 export const tokenAddressBech = "zil1lq3ghn3yaqk0w7fqtszv53hejunpyfyh3rx9gc";
+// export const tokenAddressBech = "zil1w5hwupgc9rxyuyd742g2c9annwahugrx80fw9h";
 export const tokenDecimals = 3;
 export const tokenAddress = fromBech32Address(tokenAddressBech).toLowerCase();
 export const ZilSwap = zilliqa.contracts.at(zilSwapAddress);
 
 export const snapshotPath = `data/${tokenAddressBech}/balances.json`;
 export const sharesPath = `data/${tokenAddressBech}/shares.json`;
-export const csvPath = `data/${tokenAddressBech}/rewards.csv`;
+export const dataPath =  `data/${tokenAddressBech}`;
 
 export const lpBlockList = [
     tokenAddressBech,
@@ -23,6 +24,6 @@ export const lpBlockList = [
 ].map(a => fromBech32Address(a).toLowerCase());
 
 // TODO: get pool amount dynamically
-const poolAmount = 46.27;
+const poolAmount = 179.39;
 export const interestEarned = .1;
 export const rewardsToDistribute = poolAmount * interestEarned;

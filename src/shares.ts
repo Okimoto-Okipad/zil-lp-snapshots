@@ -9,9 +9,9 @@ import {
     sharesPath,
     lpBlockList,
     rewardsToDistribute,
-    csvPath,
     tokenDecimals,
     interestEarned,
+    dataPath,
 } from './constants';
 
 export const job = () => {
@@ -71,7 +71,9 @@ export const job = () => {
 
     const jsonArray = JSON.stringify(lpRank, null, 2);
     writeFileSync(sharesPath, jsonArray);
-    writeFileSync(csvPath, `Address,Weighted Share,Rewards / Interest @ ${interestEarned * 100}%\n${lpRank.map(printLP).join('\n')}`);
+    writeFileSync(`${dataPath}/rewards.csv`, `Address,Weighted Share,${rewardsToDistribute} Elons from ${interestEarned * 100}%\n${lpRank.map(printLP).join('\n')}`);
+    writeFileSync(`${dataPath}/pay.txt`, lpRank.map(payLP).join('\n'));
 }
 
 const printLP = (lp: any) => `${lp.account},${lp.share.toFixed(3)},${lp.rewards.toFixed(tokenDecimals)}`;
+const payLP = (lp: any) => `${lp.account} :: ${lp.rewards.toFixed(tokenDecimals)} Elons`;
