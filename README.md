@@ -15,6 +15,6 @@ git clone https://github.com/Token-Elon/zil-lp-snapshots.git
 cd zil-lp-snapshots
 npm i
 nano src/constants.ts # set token or rewards amount
-tsx #compile to dist folder
+tsc #compile to dist folder
 npm start #take snapshot, writes to data/tokenId/...json/csv
 ```
