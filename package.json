@@ -16,7 +16,11 @@
     "bignumber.js": "^9.0.1",
     "moment": "^2.29.1",
     "tslib": "2.2.0",
-    "typescript": "^4"
+    "typescript": "^4",
+    "websocket": "^1.0.34"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/websocket": "^1.0.4"
+  }
 }
